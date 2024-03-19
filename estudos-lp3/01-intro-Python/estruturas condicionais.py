@@ -59,3 +59,43 @@ dias = {
 }
 
 print(dias(dia))
+
+#operador ternario
+
+idade = 20
+
+if idade>=18:
+    status = 'Maior de idade'
+else:
+    status = 'Menor de idade'
+
+status = 'Maior de idade' if idade>=18 else 'Menor de idade'
+
+#match case
+
+dia = 3
+
+match dia:
+    case 1:
+        print('Segunda')
+    case 2:
+        print('Terça')
+    case 3:
+        print('Quartanumero2 = input()')
+    case 4:
+        print('Quinta')
+    case 5:
+        print('Sexta')
+
+#imprimir
+#1 e 7 - fim de semana
+#2 a 6 - dia útil
+
+match dia:
+    case 1 | 7:
+        print('Fim de semana')
+    case 2 | 3 | 4 | 5 | 6:
+        print('Dia útil')
+    case _: 
+        print('Dia inválido')
+    
