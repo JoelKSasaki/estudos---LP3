@@ -1,7 +1,4 @@
 def palindromo(sentenca):
-    letras = 0
-    for i in sentenca:
-        letras += 1
     
     if(inverso(sentenca) == sentenca):
         print("palindromo")
