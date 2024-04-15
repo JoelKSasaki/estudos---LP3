@@ -3,7 +3,7 @@ def palindromo(sentenca):
     for i in sentenca:
         letras += 1
     
-    if(letras%2 != 0 and inverso(sentenca) == sentenca):
+    if(inverso(sentenca) == sentenca):
         print("palindromo")
     else:
         print("não é palindromo")
