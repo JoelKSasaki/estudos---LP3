@@ -1,26 +1,32 @@
 #importa a classe Flask do módulo flask
-from flask import Flask
+from flask import Flask, render_template
 from validate_docbr import CPF, CNPJ
 
 #instancia um objeto flask que representa a aplicação
-app = Flask("minha aplicação")
+app = Flask(__name__)
 
 #função: função com retorno
 
 #página home
 @app.route("/")
 def home():
-    return "<h1>Home page </h1>"
+    return render_template("home.html")
 
 #página contato
 @app.route("/contato")
 def contato():
-    return "<h1>Contato </h1>"
+    return render_template("contato.html")
 
 #página produtos
 @app.route("/produtos")
 def produtos():
-    return "<h1>Produtos </h1>"
+    lista_produtos = [
+        {"nome" : "Coca-cola", "descricao": "Mata a sede"},
+        {"nome" : "Cheetos", "descricao": "Cheiro forte de queijo"},
+        {"nome" : "Chocolate", "descricao": "Excelente"}
+    ]
+
+    return render_template("produtos.html", produtos = lista_produtos)
 
 #/gerar cpf (devolve um cpf aleatório)
 #/gerar cnpj (devolve um cnpj aleatório)
