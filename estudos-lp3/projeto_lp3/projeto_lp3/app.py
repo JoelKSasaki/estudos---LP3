@@ -35,20 +35,18 @@ def produtos():
 @app.route("/cpf")
 def cpf():
     cpf = CPF()
-    return f"<h1>Gerar CPF</h1>: {cpf.generate(mask=True)}"
+    return render_template("cpf.html", cpf = cpf.generate(True))
 
 @app.route("/cnpj")
 def cnpj():
     cnpj = CNPJ()
-    return f"<h1>Gerar CPF</h1>: {cnpj.generate(mask=True)}"
-
-def cnpj():
-    cnpj = cnpj.generate((True))
-    return cnpj
+    return render_template("cnpj.html", cnpj = cnpj.generate(True))
 
 @app.route("/serviços")
 def servico():
     return "<h2>Nossos Serviços<h2>"
 
+if __name__ == "__main__":
+    app.run()
 
-app.run()
+'''<h1>Gerar CNPJ</h1>: {cnpj.generate(mask=True)}'''
