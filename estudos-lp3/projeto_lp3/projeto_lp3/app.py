@@ -1,6 +1,12 @@
 #importa a classe Flask do módulo flask
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from validate_docbr import CPF, CNPJ
+
+lista_produtos = [
+        {"nome" : "Coca-cola", "descricao": "Mata a sede"},
+        {"nome" : "Cheetos", "descricao": "Cheiro forte de queijo"},
+        {"nome" : "Chocolate", "descricao": "Excelente"}
+    ]
 
 #instancia um objeto flask que representa a aplicação
 app = Flask(__name__)
@@ -20,11 +26,7 @@ def contato():
 #página produtos
 @app.route("/produtos")
 def produtos():
-    lista_produtos = [
-        {"nome" : "Coca-cola", "descricao": "Mata a sede"},
-        {"nome" : "Cheetos", "descricao": "Cheiro forte de queijo"},
-        {"nome" : "Chocolate", "descricao": "Excelente"}
-    ]
+    
 
     return render_template("produtos.html", produtos = lista_produtos)
 
@@ -46,7 +48,19 @@ def cnpj():
 def servico():
     return "<h2>Nossos Serviços<h2>"
 
+@app.route("/produtos/cadastro")
+def cadastro_produto():
+    return render_template("cadastro_produto.html")
+
+@app.route("/produtos", method=['POST'])
+def salvar_produtos():
+    nome = request.form['nome']
+    descricao = request.form['descricao']
+    produto = {"nome": nome, "descricao": descricao}
+    lista_produtos.append(produto)
+    return render_template("produtos.html", produtos=lista_produtos)
+
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5001)
 
 '''<h1>Gerar CNPJ</h1>: {cnpj.generate(mask=True)}'''
