@@ -1,0 +1,3 @@
+def contword():
+    frase = input()
+    
