@@ -55,13 +55,13 @@ print(alien)
 #dicionário de objetos parecidos
 
 favorite_languages = {
-    'Sarah': 'python',
+    'Milho': 'python',
     'Pedro': 'java',
     'Júlio': 'HTML',
 }
 
-language = favorite_languages['Sarah'].title()
-print(f"A Sarah gosta da linguagem {language}")
+language = favorite_languages['Milho'].title()
+print(f"Milhomem gosta da linguagem {language}")
 
 #acesso de valores com get
 
